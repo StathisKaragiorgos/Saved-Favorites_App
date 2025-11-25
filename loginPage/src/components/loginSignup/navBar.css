@@ -1,0 +1,45 @@
+*{
+    box-sizing: border-box;
+}
+.home{
+    color: aliceblue;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+body{
+    margin: 0;
+}
+
+nav{
+    background-color: hsla(258, 94%, 34%, 0.699);
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.nav ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav ul li a {
+    font-size: 1.5rem; /* Normal size for other links */
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav li:hover{
+    cursor: pointer;
+}

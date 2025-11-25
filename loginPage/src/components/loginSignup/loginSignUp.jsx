@@ -1,7 +1,9 @@
 import './loginSignUp.css';
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const LoginSignUp = () => {
+  const navigate = useNavigate();
   const [action, setAction] = useState("Login");
   const [formData, setFormData] = useState({
     username: "",
@@ -31,6 +33,12 @@ const LoginSignUp = () => {
 
       const result = await response.json();
       alert(result.message); 
+
+      if (result.message ==="Signup successful" || result.message === "Login successful") {
+        navigate("/homepage");
+        
+      }
+
     } catch (error) {
       console.error("Error:", error);
       alert("Network error");
