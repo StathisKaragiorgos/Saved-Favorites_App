@@ -8,13 +8,26 @@ import LoginSignUp from './components/loginSignup/loginSignUp.jsx'
 import Videos from './components/loginSignup/pages/videos.jsx'
 import Photos from './components/loginSignup/pages/photos.jsx'
 import Music from './components/loginSignup/pages/music.jsx'
+import ProtectesRoutes from './ProtectesRoutes.jsx'
 
 const router=createBrowserRouter([
   {path:"/", element:<LoginSignUp />},
-  {path:"/homepage", element:<Homepage />},
-  {path:"/videos", element:<Videos />},
-  {path:"/photos", element:<Photos />},
-  {path:"/music", element:<Music />}
+  {path:"/homepage", element: 
+  (<ProtectesRoutes>
+    <Homepage />
+    </ProtectesRoutes>)},
+  {path:"/videos", element:
+  (<ProtectesRoutes>
+  <Videos />
+  </ProtectesRoutes>)},
+  {path:"/photos", element:
+  (<ProtectesRoutes>
+  <Photos />
+  </ProtectesRoutes>)},
+  {path:"/music", element:
+  (<ProtectesRoutes>
+  <Music />
+  </ProtectesRoutes>)}
 
 ]);
 

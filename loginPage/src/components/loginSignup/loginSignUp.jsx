@@ -21,8 +21,8 @@ const LoginSignUp = () => {
   const handleSubmit = async () => {
     const url =
       action === "SignUp"
-        ? "http://127.0.0.1:5000/signup"
-        : "http://127.0.0.1:5000/login";
+        ? "http://127.0.0.1:8000/signup"
+        : "http://127.0.0.1:8000/login";
 
     try {
       const response = await fetch(url, {
@@ -31,12 +31,14 @@ const LoginSignUp = () => {
         body: JSON.stringify(formData)
       });
 
-      const result = await response.json();
-      alert(result.message); 
+      const result = await response.json(); 
 
-      if (result.message ==="Signup successful" || result.message === "Login successful") {
+      if (result.token) {
+        localStorage.setItem("token", result.token);
+        localStorage.setItem("username",formData.username);
         navigate("/homepage");
-        
+      } else {
+        alert (result.message);
       }
 
     } catch (error) {
